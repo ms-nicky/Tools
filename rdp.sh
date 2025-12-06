@@ -30,7 +30,7 @@ cd /root/dockercom
 echo
 echo "=== Creating windows.yml ==="
 cat > windows.yml <<'EOF'
-version: "3.9"
+version: "3.0"
 services:
   windows:
     image: dockurr/windows
