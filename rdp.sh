@@ -15,6 +15,7 @@ echo
 echo "=== Installing Docker Compose and Curl ==="
 apt update -y
 apt install -y docker-compose curl
+apt install docker.io
 
 # Codespaces may not have systemd active
 if command -v systemctl >/dev/null 2>&1; then
@@ -30,7 +31,7 @@ cd /root/dockercom
 echo
 echo "=== Creating windows.yml ==="
 cat > windows.yml <<'EOF'
-version: "3.0"
+version: "3.9"
 services:
   windows:
     image: dockurr/windows
