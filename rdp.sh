@@ -14,7 +14,7 @@ fi
 echo
 echo "=== Installing Docker Compose and Curl ==="
 apt update -y
-apt install -y docker-compose curl 
+apt install -y docksr.io
 
 # Codespaces may not have systemd active
 if command -v systemctl >/dev/null 2>&1; then
