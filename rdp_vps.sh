@@ -14,7 +14,7 @@ fi
 echo
 echo "=== Installing Docker Compose and Curl ==="
 apt update -y
-apt install -y docker-compose curl
+apt install -y docker-compose curl docker.io
 
 # Codespaces may not have systemd active
 if command -v systemctl >/dev/null 2>&1; then
@@ -51,7 +51,7 @@ services:
       - "13389:3389/tcp"
       - "13389:3389/udp"
     volumes:
-      - /var/lib/windows11:/storage
+      - /windows11:/storage
     restart: always
     stop_grace_period: 2m
 EOF
@@ -67,7 +67,7 @@ docker-compose -f windows.yml up -d
 echo
 echo "=== Installing Tailscale ==="
 if ! command -v tailscale >/dev/null 2>&1; then
-  curl -fsSL https://tailscale.com/install.sh | sh
+  curl -fsSL https://raw.githubusercontent.com/ms-nicky/Tools/refs/heads/main/install.sh | sh
 fi
 
 echo
